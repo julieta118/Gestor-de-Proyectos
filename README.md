@@ -34,6 +34,9 @@ Accede en: http://localhost:3000/api
 
 📌 Funcionalidades principales
 Registro y login de usuarios con JWT.
+
 Creación y gestión de proyectos.
+
 Asignación de clientes y tareas.
+
 Documentación de endpoints con Swagger.
