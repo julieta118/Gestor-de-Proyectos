@@ -1,0 +1,47 @@
+<p-dialog
+  [(visible)]="visible"
+  (visibleChange)="visibleChange.emit($event)"
+  [modal]="true"
+  [closable]="true"
+  [header]="tareaSeleccionada ? 'Actualizar tarea' : 'Crear tarea'"
+>
+  <form [formGroup]="form" (ngSubmit)="guardarTarea()">
+    <div class="p-field">
+      <label for="descripcion">Descripción</label>
+      <input
+        id="descripcion"
+        type="text"
+        pInputText
+        formControlName="descripcion"
+      />
+    </div>
+
+    <div class="p-field" *ngIf="tareaSeleccionada">
+      <label for="estado">Estado</label>
+      <select id="estado" class="p-inputtext" formControlName="estado">
+        <option [ngValue]="null">Seleccione un estado</option>
+        <option *ngFor="let estado of estados" [ngValue]="estado">
+          {{ estado }}
+        </option>
+      </select>
+    </div>
+
+    <p-footer>
+      <button pButton type="submit" label="Guardar" icon="pi pi-check"></button>
+      <button
+        pButton
+        type="button"
+        label="Cancelar"
+        icon="pi pi-times"
+        class="p-button-secondary"
+        (click)="cerrarDialog()"
+      ></button>
+    </p-footer>
+  </form>
+</p-dialog>
+
+<div class ="footer">
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Proyectos. Todos los derechos reservados.</p>
+  </footer>
+</div>

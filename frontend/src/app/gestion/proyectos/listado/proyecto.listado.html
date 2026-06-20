@@ -1,0 +1,103 @@
+<h2>LISTADO DE PROYECTOS</h2>
+
+<div class="search-container">
+
+  <div class="search-box">
+    <h3>Buscar:</h3>
+    <input
+      type="text"
+      placeholder="Buscar proyecto..."
+      [(ngModel)]="busqueda"
+      (input)="filtrarProyectos()"
+    />
+  </div>
+
+  <div class="order-box">
+    <label for="orden"><h3>Ordenar por:</h3></label>
+
+    <select
+      id="orden"
+      [(ngModel)]="orden"
+      (change)="ordenarProyectos()"
+    >
+      <option value="az">Nombre (A-Z)</option>
+      <option value="za">Nombre (Z-A)</option>
+      <option value="estado">Estado</option>
+      <option value="id">ID</option>
+    </select>
+  </div>
+
+</div>
+
+<p-table [value]="proyectosFiltrados">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Cliente</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-proyecto>
+    <tr>
+      <td>{{ proyecto.id }}</td>
+      <td>{{ proyecto.nombre }}</td>
+      <td>{{ proyecto.cliente?.nombre }}</td>
+      <td>{{ proyecto.estado }}</td>
+      <td>
+        <button
+          pButton
+          type="button"
+          label="Editar"
+          icon="pi pi-pencil"
+          (click)="editarProyecto(proyecto)"
+        ></button>
+
+        <button
+          pButton
+          type="button"
+          label="Ver tareas"
+          icon="pi pi-list"
+          (click)="verTareas(proyecto.id)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<br>
+
+<button
+  pButton
+  type="button"
+  label="Crear Proyecto"
+  icon="pi pi-plus"
+  (click)="crearProyecto()"
+></button>
+
+<button
+  pButton
+  type="button"
+  label="Exportar CSV"
+  icon="pi pi-download"
+  (click)="exportarCSV()"
+></button>
+
+<p-dialog
+  header="{{ proyectoSeleccionado ? 'Editar proyecto' : 'Crear proyecto' }}"
+  [(visible)]="visible"
+  (onHide)="cerrarDialog()"
+>
+  <app-gestion-proyecto
+    [proyectoSeleccionado]="proyectoSeleccionado"
+    (cerrar)="cerrarDialog()">
+  </app-gestion-proyecto>
+</p-dialog>
+
+<div class ="footer">
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Proyectos. Todos los derechos reservados.</p>
+  </footer>
+</div>

@@ -1,0 +1,25 @@
+<div class="card">
+  <form [formGroup]="form" (ngSubmit)="guardarCliente()">
+    <div class="p-field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" pInputText formControlName="nombre" />
+    </div>
+
+    <div class="p-field">
+      <label for="estado">Estado</label>
+      <input id="estado" type="text" pInputText formControlName="estado" />
+    </div>
+    
+
+    <div class="p-mt-3">
+      <button pButton type="submit" label="Guardar" icon="pi pi-check"></button>
+      <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="cerrar.emit()"></button>
+    </div>
+  </form>
+</div>
+
+<div class ="footer">
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Proyectos. Todos los derechos reservados.</p>
+  </footer>
+</div>

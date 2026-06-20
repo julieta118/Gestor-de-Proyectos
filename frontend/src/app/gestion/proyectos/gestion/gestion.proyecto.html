@@ -1,0 +1,46 @@
+<div class="card">
+  <form [formGroup]="form" (ngSubmit)="guardarProyecto()">
+    <div class="p-field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" pInputText formControlName="nombre" />
+    </div>
+
+    <div class="p-field">
+      <label for="cliente">Cliente</label>
+      <select id="cliente" formControlName="idCliente">
+        <option value="" disabled>Seleccionar cliente</option>
+        <option [ngValue]="null">Proyecto interno</option>
+        <option *ngFor="let cliente of clientes" [value]="cliente.id">
+          {{ cliente.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="p-field">
+      <label for="estado">Estado</label>
+      <select id="estado" formControlName="estado">
+        <option value="" disabled>Seleccionar estado</option>
+        <option *ngFor="let estado of estadosDisponibles" [value]="estado">
+          {{ estado }}
+        </option>
+      </select>
+    </div>
+
+    <div class="p-mt-3">
+      <button pButton type="submit" label="Guardar"></button>
+      <button
+        pButton
+        type="button"
+        label="Cancelar"
+        icon="pi pi-times"
+        (click)="cerrar.emit()"
+      ></button>
+    </div>
+  </form>
+</div>
+
+<div class ="footer">
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Proyectos. Todos los derechos reservados.</p>
+  </footer>
+</div>

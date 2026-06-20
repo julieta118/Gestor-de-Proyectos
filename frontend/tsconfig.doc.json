@@ -1,0 +1,3 @@
+{ // tsconfig.doc.json es un archivo de configuración de TypeScript que se utiliza para generar documentación a partir del código fuente. Este archivo es específico para el proyecto frontend y se encuentra en la raíz del proyecto.
+    "include": ["scr/**/*.ts"]
+}

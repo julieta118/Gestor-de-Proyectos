@@ -1,0 +1,9 @@
+<div class="logout-wrapper">
+  <button class="btn btn-danger" (click)="abrirConfirmacion()">Cerrar Sesión</button>
+
+  <div *ngIf="mostrarConfirmacion" class="confirm-box">
+    <p>¿Seguro que quieres cerrar sesión?</p>
+    <button class="btn btn-danger" (click)="cerrarSesion()">Sí, cerrar</button>
+    <button class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+  </div>
+</div>

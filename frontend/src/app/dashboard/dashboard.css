@@ -1,0 +1,79 @@
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+ 
+}
+.card i {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: transparent;
+  padding: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 2rem;
+  width: 220px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.card h3 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #2c3e50;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #ecf6fd;
+}
+
+.recent-projects {
+  margin-top: 20px;
+}
+
+.recent-projects h2 {
+  color: rgb(245, 246, 247);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.project-card h4 {
+  margin: 0 0 10px 0;
+}
+
+.alta {
+  color: red;         
+}
+
+.moderada {
+  color: orange;      
+}
+
+.sin-proyectos {
+  color: green;       
+}
+
+

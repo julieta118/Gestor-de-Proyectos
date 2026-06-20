@@ -1,0 +1,66 @@
+<app-cerrar></app-cerrar>
+
+<h1>SISTEMA DE GESTIÓN DE PROYECTOS</h1>
+<h2>Estado actual:</h2>
+<div class="dashboard-grid" *ngIf="proyectos.length >= 0">
+  <div class="stat-card total">
+    <h3>Total proyectos registrados</h3>
+    <p class="number">{{ totalProyectos }}</p>
+  </div>
+  <div class="stat-card active">
+    <h3>Activos</h3>
+    <p class="number">{{ proyectosActivosCount }}</p>
+  </div>
+  <div class="stat-card finalizado">
+    <h3>Finalizados</h3>
+    <p class="number">{{ proyectosFinalizadosCount }}</p>
+  </div>
+  <div class="stat-card baja">
+    <h3>Cancelados</h3>
+    <p class="number">{{ proyectosBajaCount }}</p>
+  </div>
+</div>
+
+<hr/>
+ <div class="mensaje" style= " font-size: 1 rem; font-family: Arial, Helvetica, sans-serif ; text-align: center;"[ngClass]="mensajeClase">
+    <h4>{{ mensajeCarga }}</h4>
+  </div>
+  <hr/>
+
+  <h2>¿Qué quieres hacer?</h2>
+<div class="cards-container">
+  <div class="card" (click)="goTo('clientes')">
+    <i class="pi pi-users" style="font-size: 2rem; color: #3498db"></i>
+    <h3>CLIENTES</h3>
+    <h5>Administar clientes</h5>
+
+
+  </div>
+
+  <div class="card" (click)="goTo('proyectos')">
+    <i class="pi pi-file" style="font-size: 2rem; color: #3498db"></i>
+    <h3>PROYECTOS</h3>
+    <h5>Ver y crear proyectos</h5>
+  </div>
+</div>
+
+<div class="recent-projects">
+  <h2>Actividad reciente:</h2>
+  <ng-container *ngIf="proyectos && proyectos.length > 0; else noProjects">
+    <div class="project-card" *ngFor="let proyecto of proyectos.slice(-3).reverse()">
+      <h4>{{ proyecto.nombre }}</h4>
+      <button pButton label="Ver detalles" (click)="verDetalles(proyecto.id)"></button>
+    </div>
+  </ng-container>
+
+  
+  <ng-template #noProjects>
+    <p>No hay proyectos registrados.</p>
+    <pre>{{ proyectos | json }}</pre>
+  </ng-template>
+</div>
+<div class ="footer">
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Proyectos. Todos los derechos reservados.</p>
+  </footer>
+</div>
