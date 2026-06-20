@@ -12,7 +12,9 @@ Desarrollada como primer proyecto completo de mi carrera en desarrollo web.
 
 - **Base de datos**: PostgreSQL
   
-- **Documentación**: Swagger  
+- **Documentación**: Swagger
+
+- **Despliegue y producción**: PM2, Nginx
 
 
 ## ⚙️ Instalación y ejecución
@@ -62,3 +64,9 @@ Creación y gestión de proyectos.
 Asignación de clientes y tareas.
 
 Documentación de endpoints con Swagger.
+
+## 🌐 Despliegue en producción
+- El **backend** se ejecuta con **PM2**, que mantiene el proceso activo y reinicia automáticamente si falla.  
+- El **frontend** se compila con Angular y se sirve como archivos estáticos mediante **Nginx**.  
+- Nginx también actúa como proxy inverso para redirigir las peticiones al backend NestJS.
+
